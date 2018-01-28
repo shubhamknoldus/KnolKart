@@ -2,6 +2,7 @@ package edu.knoldus.operation.service
 
 import edu.knoldus.application.ApplicationObject
 import edu.knoldus.operation.classes.Item
+
 import scala.annotation.tailrec
 import scala.io.StdIn._
 
@@ -59,6 +60,7 @@ case class InventoryService(itemMap: Map[Int, Item]) {
   def updateCount: Boolean = {
     ApplicationObject.runApplication(updateCountHelper(itemMap), true)
   }
+
   @tailrec
   private def updateCountHelper(map: Map[Int, Item]): Map[Int, Item] = {
     if (map.isEmpty) {
@@ -79,9 +81,9 @@ case class InventoryService(itemMap: Map[Int, Item]) {
     }
   }
 
-  /*def filter: Boolean = {
-    val filterElements = FilterElements(itemMap)
-    ApplicationObject.runApplication()
-  }*/
+  def filter: Boolean = {
+    val filterObj = FilterElements(itemMap)
+    ApplicationObject.runApplication(filterObj.filterElements, true)
+  }
 
 }
