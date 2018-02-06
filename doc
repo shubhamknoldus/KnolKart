@@ -22,7 +22,6 @@ How to run updated in wiki.
 a. Have modules inventory, inventory-sdk, checkout-service, notification-service
 b. Have proper package structure.
 
-c
 2. As an architect, I would like to access inventory to show search items so that it can be shown in UI or access by analytics.
 Acceptance criteria
 a. List of items with details like description, photos, vendor information, price.

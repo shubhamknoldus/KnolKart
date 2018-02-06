@@ -12,7 +12,6 @@ object ApplicationObject extends App {
 
   def runApplication(map: Map[Int, Item], flag: Boolean): Boolean = {
     if (flag) {
-      val flag1 = false
       val inventoryObject = InventoryService(map)
       logger.info("Hi there! welcome to Knolkart\n")
       logger.info("\nPress 1 to add element\n")
@@ -22,10 +21,10 @@ object ApplicationObject extends App {
       logger.info("\n")
       val choice = readInt()
       choice match {
-        case 1 => inventoryObject.addItem
-        case 2 => inventoryObject.updateCount
-        case 3 => inventoryObject.filter
-        case 4 => false
+        case x if x == 1 => inventoryObject.addItem
+        case x if x == 2 => inventoryObject.updateCount
+        case x if x == 3 => inventoryObject.filter
+        case x if x == 4 => ApplicationObject.runApplication(map, false)
       }
     } else {
       false

@@ -9,7 +9,7 @@ object ImplicitObject {
 
   implicit class SortMap(mapToSort: Map[Int, Item]) {
     def sortByPrice: List[Item] = {
-      mapToSort.values.toList.sortWith(_.price <= _.price)
+      mapToSort.values.toList.sortWith((a, b) => a.price <= b.price)
     }
 
     def sortByPriceHighToLow: List[Item] = {
@@ -17,10 +17,9 @@ object ImplicitObject {
     }
 
     def sortByCategory: List[Item] = {
-      mapToSort.values.toList.sortWith(_.category <= _.category)
+      mapToSort.values.toList.sortWith((a, b) => a.category <= b.category)
     }
   }
-
 }
 
 
@@ -53,7 +52,6 @@ case class FilterElements(mapToFilter: Map[Int, Item]) {
       }
       mapToFilter
     }
-
   }
 
   private def displaySortedElements(listToDisplay: List[Item]): Unit = {
